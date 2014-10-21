@@ -16,6 +16,16 @@ var amdWrap = require("amd-wrap");
 
 var wrapped = amdWrap("module.exports = 5;");
 var wrapThis = amdWrap(fs.readFileSync(__filename));
+
+var deps = 'jQuery'
+// OR
+var deps = ['jQuery', 'other']
+// OR
+var deps = {
+        jQuery: 'jquery'
+        other: 'other'
+    }
+var wrapDeps = amdWrap(fs.readFileSync(__filename), deps);
 ```
 
 Line numbers will line up, although the first column will be shifted by
